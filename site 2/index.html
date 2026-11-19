@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agne Rim Ceramics — hand-built stoneware, Vilnius</title>
-<meta name="description" content="Agne Rim Ceramics — hand-built stoneware vessels inspired by nature, minimalism and a strong sense of simplicity. Vilnius, 2026.">
-<meta property="og:title" content="Agne Rim Ceramics">
+<title>AgneRim — Handmade Ceramics</title>
+<meta name="description" content="AgneRim — hand-built stoneware vessels inspired by nature, minimalism and a strong sense of simplicity. Vilnius, 2026.">
+<meta property="og:title" content="AgneRim — Handmade Ceramics">
 <meta property="og:description" content="Hand-built stoneware vessels inspired by nature, minimalism and a strong sense of simplicity. Vilnius, 2026.">
 <meta property="og:image" content="images/moonstone-1.jpg">
 <meta name="theme-color" content="#fbfaf7">
+<link rel="icon" type="image/png" href="favicon.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -30,7 +31,7 @@ input,textarea,button{font:inherit;color:inherit}
     <div style="display:flex;justify-content:space-between;align-items:center;min-height:28px;gap:16px">
       <div style="min-width:0">
         <sc-if value="{{ showWordmark }}" hint-placeholder-val="{{ false }}">
-          <a href="#/" data-route="home" onClick="{{ go }}" style="font-family:'Cormorant SC',serif;font-weight:500;font-size:17px;letter-spacing:.04em;white-space:nowrap">AgneRim</a>
+          <a href="#/" data-route="home" onClick="{{ go }}" aria-label="AgneRim" style="display:block;line-height:0;transition:opacity .25s" style-hover="opacity:.55"><img src="logo-wordmark.png" alt="AgneRim" style="display:block;height:15px;width:auto;aspect-ratio:640 / 98"></a>
         </sc-if>
       </div>
       <div style="display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.14em;font-weight:500">
@@ -51,12 +52,11 @@ input,textarea,button{font:inherit;color:inherit}
 
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
       <section data-screen-label="Portfolio" style="padding:96px 24px 0;text-align:center">
-        <h1 style="margin:0;font-family:'Cormorant SC',serif;font-weight:400;font-size:clamp(32px,5.6vw,68px);line-height:1;letter-spacing:.04em;text-wrap:balance;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) 0s,transform 1.4s cubic-bezier(.16,.6,.2,1) 0s">AgneRim</h1>
-        <p style="margin:22px auto 0;max-width:620px;font-size:clamp(15px,1.3vw,17px);line-height:1.55;color:#3d3a35;text-wrap:pretty;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) .15s,transform 1.4s cubic-bezier(.16,.6,.2,1) .15s">
+        <h1 style="margin:0;display:flex;justify-content:center;line-height:0;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) 0s,transform 1.4s cubic-bezier(.16,.6,.2,1) 0s"><img src="logo.png" alt="AgneRim — Handmade Ceramics" style="display:block;width:min(72vw,340px);height:auto;aspect-ratio:1200 / 580"></h1>
+        <p style="margin:30px auto 0;max-width:620px;font-size:clamp(15px,1.3vw,17px);line-height:1.55;color:#3d3a35;text-wrap:pretty;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) .15s,transform 1.4s cubic-bezier(.16,.6,.2,1) .15s">
           <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">inspired by nature, minimalism, and a strong sense of simplicity</sc-if>
           <sc-if value="{{ isLt }}" hint-placeholder-val="{{ false }}">įkvėpta gamtos, minimalizmo ir stipraus paprastumo pojūčio</sc-if>
         </p>
-        <p style="margin:26px 0 0;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#3d3a35;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) .3s,transform 1.4s cubic-bezier(.16,.6,.2,1) .3s">2026, Vilnius</p>
       </section>
       <section style="width:100%;max-width:1160px;box-sizing:border-box;margin:112px auto 0;padding:0 24px;display:flex;flex-direction:column;align-items:center;gap:136px;overflow-x:clip">
         <sc-for list="{{ rows }}" as="row" hint-placeholder-count="0">
@@ -66,7 +66,7 @@ input,textarea,button{font:inherit;color:inherit}
                 <div role="img" aria-label="{{ row.a.title }}" style="width:100%;height:100%;background:url({{ row.a.cover }}) center / cover no-repeat;transition:transform 1.4s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.03)"></div>
               </div>
               <div style="margin-top:22px;text-align:center;display:flex;flex-direction:column;gap:7px">
-                <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.a.title }}</div>
+                <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.a.label }}</div>
                 <sc-if value="{{ row.a.hasCaption }}" hint-placeholder-val="{{ true }}"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b665e">{{ row.a.caption }}</div></sc-if>
               </div>
             </a>
@@ -78,7 +78,7 @@ input,textarea,button{font:inherit;color:inherit}
                   <div role="img" aria-label="{{ row.a.title }}" style="width:100%;height:100%;background:url({{ row.a.cover }}) center / cover no-repeat;transition:transform 1.4s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.03)"></div>
                 </div>
                 <div style="margin-top:22px;text-align:center;display:flex;flex-direction:column;gap:7px">
-                  <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.a.title }}</div>
+                  <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.a.label }}</div>
                   <sc-if value="{{ row.a.hasCaption }}" hint-placeholder-val="{{ true }}"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b665e">{{ row.a.caption }}</div></sc-if>
                 </div>
               </a>
@@ -87,7 +87,7 @@ input,textarea,button{font:inherit;color:inherit}
                   <div role="img" aria-label="{{ row.b.title }}" style="width:100%;height:100%;background:url({{ row.b.cover }}) center / cover no-repeat;transition:transform 1.4s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.03)"></div>
                 </div>
                 <div style="margin-top:22px;text-align:center;display:flex;flex-direction:column;gap:7px">
-                  <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.b.title }}</div>
+                  <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase">{{ row.b.label }}</div>
                   <sc-if value="{{ row.b.hasCaption }}" hint-placeholder-val="{{ true }}"><div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b665e">{{ row.b.caption }}</div></sc-if>
                 </div>
               </a>
@@ -107,7 +107,7 @@ input,textarea,button{font:inherit;color:inherit}
 
     <sc-if value="{{ isPiece }}" hint-placeholder-val="{{ false }}">
       <section data-screen-label="Piece" style="width:100%;max-width:1180px;box-sizing:border-box;margin:40px auto 0;padding:0 32px;opacity:{{ pageOp }};transform:{{ pageTf }};transition:opacity 1.4s cubic-bezier(.16,.6,.2,1) 0s,transform 1.4s cubic-bezier(.16,.6,.2,1) 0s">
-        <a href="#/" data-route="home" onClick="{{ go }}" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#6b665e"><span aria-hidden="true">←</span><span>{{ t.back }}</span></a>
+        <a href="#/" data-route="home" onClick="{{ backHome }}" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:#6b665e"><span aria-hidden="true">←</span><span>{{ t.back }}</span></a>
         <div style="display:flex;flex-wrap:wrap;gap:48px 80px;align-items:flex-start;margin-top:28px">
           <div style="flex:3 1 400px;min-width:0;display:flex;flex-direction:column;gap:28px">
             <sc-for list="{{ piece.photos }}" as="ph" hint-placeholder-count="0">
@@ -130,8 +130,8 @@ input,textarea,button{font:inherit;color:inherit}
             </dl>
             <div style="margin-top:28px;padding-top:22px;border-top:1px solid #e6e2da;display:flex;flex-direction:column;gap:12px;font-size:13px;line-height:1.6;color:#6b665e;text-wrap:pretty">
               <p style="margin:0">
-                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">The vase can hold water, but as with handmade ceramics, slight dampness, mold, or occasional leakage may occur. For long-term use, dried flowers or displaying it simply as a sculptural object is recommended.</sc-if>
-                <sc-if value="{{ isLt }}" hint-placeholder-val="{{ false }}">Vaza gali talpinti vandenį, tačiau, kaip įprasta rankų darbo keramikai, gali atsirasti nedidelis drėgnumas, pelėsis ar retkarčiais pratekėjimas. Ilgalaikiam naudojimui rekomenduojamos džiovintos gėlės arba tiesiog eksponuoti ją kaip skulptūrinį objektą.</sc-if>
+                <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Fired at a high temperature (1250 °C), the vase can hold water. For long-term use, however, dried flowers or displaying it simply as a sculptural object is recommended.</sc-if>
+                <sc-if value="{{ isLt }}" hint-placeholder-val="{{ false }}">Vaza išdegta aukštoje temperatūroje (1250 °C), todėl gali talpinti vandenį. Vis dėlto ilgalaikiam naudojimui rekomenduojama rinktis džiovintas gėles arba tiesiog eksponuoti ją kaip skulptūrinį objektą.</sc-if>
               </p>
               <p style="margin:0">
                 <sc-if value="{{ isEn }}" hint-placeholder-val="{{ true }}">Each piece is handmade from natural clay and glaze, so subtle variations in texture, color, and finish are part of its character and may differ slightly from the photographs.</sc-if>
@@ -300,7 +300,7 @@ input,textarea,button{font:inherit;color:inherit}
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;agne.rimeikaite@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;instagramHandle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;agne.rim&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;captionStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;collection&quot;,&quot;price&quot;,&quot;title&quot;],&quot;default&quot;:&quot;collection&quot;,&quot;tsType&quot;:&quot;'collection' | 'price' | 'title'&quot;,&quot;section&quot;:&quot;Portfolio grid&quot;},&quot;faqStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;open&quot;,&quot;accordion&quot;],&quot;default&quot;:&quot;open&quot;,&quot;tsType&quot;:&quot;'open' | 'accordion'&quot;,&quot;section&quot;:&quot;F.A.Q.&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;contactEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;agne.rimeikaite@gmail.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;instagramHandle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;agne.rim&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;captionStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;collection&quot;,&quot;none&quot;],&quot;default&quot;:&quot;collection&quot;,&quot;tsType&quot;:&quot;'collection' | 'none'&quot;,&quot;section&quot;:&quot;Portfolio grid&quot;},&quot;faqStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;open&quot;,&quot;accordion&quot;],&quot;default&quot;:&quot;open&quot;,&quot;tsType&quot;:&quot;'open' | 'accordion'&quot;,&quot;section&quot;:&quot;F.A.Q.&quot;}}">
 class Component extends DCLogic {
   // Photo files by the photographer's frame number (fill the "Nuotrauka" column in the sheet with these, e.g. "bjufa00079, bjufa00135").
   static FILES = {
@@ -321,7 +321,7 @@ class Component extends DCLogic {
   };
   // Default photo assignment per sheet ID, used while the sheet's "Nuotrauka" column is empty.
   static PHOTOS = {
-    'K-001': ['bjufa00079', 'bjufa00135', 'bjufa00137', 'bjufa00087'], 'K-002': ['bjufa00012', 'bjufa00016', 'bjufa00008', 'bjufa00006', 'bjufa00013'], 'K-003': ['bjufa00062', 'bjufa00058', 'bjufa00038', 'bjufa00036', 'bjufa00134'],
+    'K-001': ['bjufa00079', 'bjufa00135', 'bjufa00137', 'bjufa00120', 'bjufa00124', 'bjufa00087'], 'K-002': ['bjufa00012', 'bjufa00016', 'bjufa00008', 'bjufa00006', 'bjufa00013'], 'K-003': ['bjufa00062', 'bjufa00058', 'bjufa00038', 'bjufa00036', 'bjufa00134'],
     'K-004': ['bjufa00197', 'bjufa00196', 'bjufa00194'], 'K-005': ['bjufa00106', 'bjufa00104', 'bjufa00105', 'bjufa00102'], 'K-006': ['bjufa00108', 'bjufa00102'],
     'K-007': ['bjufa00017', 'bjufa00152', 'bjufa00158', 'bjufa00153'], 'K-008': ['bjufa00152c', 'bjufa00152', 'bjufa00153'],
   };
@@ -350,26 +350,34 @@ class Component extends DCLogic {
           available: 'Galima įsigyti', sold: 'Parduota', priceOnRequest: 'Kaina pagal užklausą', types: { Vaza: 'Vaza' }, subject: 'Užklausa: ', msgSubject: 'Žinutė nuo ' },
   };
 
-  state = { route: 'home', slug: null, lang: 'en', faqOpen: [true, false, false, false, false, false], sent: false, seen: {}, pageIn: false, revealAll: false, csv: '' };
+  // Routing: every page has its own URL (#/work/cliffside, #/about …), so links can be shared and Back works.
+  static hashOf() { const h = typeof location !== 'undefined' ? location.hash : ''; return !h || h === '#' ? '#/' : h; }
+  static parseHash(h) {
+    const dec = x => { try { return decodeURIComponent(x).toLowerCase(); } catch (_) { return x.toLowerCase(); } };
+    const [a, b] = String(h || '').replace(/^#\/?/, '').split('/').filter(Boolean).map(dec);
+    if ((a === 'work' || a === 'piece') && b) return { route: 'piece', slug: b };
+    if (a === 'about' || a === 'faq' || a === 'contact') return { route: a, slug: null };
+    return { route: 'home', slug: null };
+  }
+  static slugify(s) { return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+
+  state = { ...Component.parseHash(Component.hashOf()), lang: 'en', faqOpen: [true, false, false, false, false, false], sent: false, seen: {}, pageIn: false, revealAll: false, csv: '' };
 
   componentDidMount() {
-    try {
-      const r = JSON.parse(localStorage.getItem('arc.route') || 'null');
-      const lang = localStorage.getItem('arc.lang');
-      const next = {};
-      if (r && r.route) { next.route = r.route; next.slug = r.slug || null; }
-      if (lang === 'en' || lang === 'lt') next.lang = lang;
-      if (Object.keys(next).length) this.setState(next);
-    } catch (_) {}
+    try { const lang = localStorage.getItem('arc.lang'); if (lang === 'en' || lang === 'lt') this.setState({ lang }); } catch (_) {}
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
+    this._scroll = {}; this._hash = Component.hashOf();
+    window.addEventListener('hashchange', this.onHash);
     if (typeof IntersectionObserver === 'undefined') this.setState({ revealAll: true });
     this.resetObserver();
     this.observeAll();
     this.enter();
+    this.syncTitle();
     fetch(Component.CSV_URL).then(r => (r.ok ? r.text() : '')).then(csv => { if (csv) this.setState({ csv }); }).catch(() => {});
   }
 
-  componentDidUpdate() { this.observeAll(); }
-  componentWillUnmount() { if (this._io) this._io.disconnect(); cancelAnimationFrame(this._raf); clearTimeout(this._enterT); }
+  componentDidUpdate() { this.observeAll(); this.syncTitle(); }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); if (this._io) this._io.disconnect(); cancelAnimationFrame(this._raf); clearTimeout(this._enterT); }
 
   // --- Sheet → pieces -------------------------------------------------------
   static parseCsv(text) {
@@ -395,14 +403,18 @@ class Component extends DCLogic {
     const F = Component.FILES;
     const money = v => { const n = parseFloat(String(v || '').replace(/[^\d.,-]/g, '').replace(',', '.')); return isNaN(n) ? null : n; };
     const list = csv ? Component.parseCsv(csv) : [];
+    const used = new Set();
     this._pieces = list.filter(r => r['ID']).map(r => {
       const id = r['ID'];
+      let slug = Component.slugify(r['Pavadinimas'] || id) || id.toLowerCase();
+      if (used.has(slug)) slug += '-' + id.toLowerCase();
+      used.add(slug);
       const names = (r['Nuotrauka'] || '').split(/[;,\s]+/).map(n => n.replace(/\.\w+$/, '').toLowerCase()).filter(n => F[n]);
       const photos = (names.length ? names : (Component.PHOTOS[id] || [])).map(n => F[n]).filter(Boolean);
       const status = r['Pardavimo statusas'] || '';
       const h = /H\s*(\d+(?:[.,]\d+)?)/i.exec(r['Matmenys'] || '');
       return {
-        slug: id.toLowerCase(), id, title: r['Pavadinimas'] || id, collection: r['Kryptis / kolekcija'] || '', type: r['Tipas'] || '',
+        slug, id, title: r['Pavadinimas'] || id, collection: r['Kryptis / kolekcija'] || '', type: r['Tipas'] || '',
         dims: { en: h ? `H ${h[1]} cm` : (r['Matmenys'] || ''), lt: h ? `aukštis ${h[1]} cm` : (r['Matmenys'] || '') },
         price: money(r['Mano kaina (€)']) ?? money(r['Rekomenduojama kaina (€)']),
         available: !status || /^nepard/i.test(status),
@@ -417,13 +429,31 @@ class Component extends DCLogic {
 
   get email() { return this.props.contactEmail ?? 'agne.rimeikaite@gmail.com'; }
 
-  nav(route, slug) {
-    this.setState({ route, slug: slug || null, sent: false, seen: {}, pageIn: false });
-    try { localStorage.setItem('arc.route', JSON.stringify({ route, slug: slug || null })); } catch (_) {}
-    window.scrollTo(0, 0);
-    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
-    this.resetObserver();
-    this.enter();
+  // Each page remembers its scroll position: Back/Forward and "← Portfolio" return to it, fresh clicks start at the top.
+  onHash = () => {
+    const y = window.scrollY || (document.scrollingElement ? document.scrollingElement.scrollTop : 0) || 0;
+    if (this._hash) this._scroll[this._hash] = y;
+    const hash = Component.hashOf();
+    const target = this._restoreNext != null ? this._restoreNext : this._pushNext ? 0 : (this._scroll[hash] || 0);
+    this._hash = hash; this._pushNext = false; this._restoreNext = null;
+    this.setState({ ...Component.parseHash(hash), sent: false, seen: {}, pageIn: false }, () => {
+      window.scrollTo(0, target);
+      if (document.scrollingElement) document.scrollingElement.scrollTop = target;
+      this.resetObserver(); this.observeAll(); this.enter();
+    });
+  };
+  link(e, restore) {
+    if (e.defaultPrevented || e.button > 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const href = e.currentTarget.getAttribute('href') || '#/';
+    if (href === Component.hashOf()) { e.preventDefault(); window.scrollTo(0, 0); if (document.scrollingElement) document.scrollingElement.scrollTop = 0; return; }
+    if (restore) this._restoreNext = this._scroll[href] || 0; else this._pushNext = true;
+  }
+  syncTitle() {
+    const s = this.state, NAMES = { about: ['About', 'Apie'], faq: ['F.A.Q.', 'D.U.K.'], contact: ['Contact', 'Kontaktai'] };
+    const p = s.route === 'piece' ? this.pieces().find(x => x.slug === s.slug || x.id.toLowerCase() === s.slug) : null;
+    const name = p ? p.title : NAMES[s.route] ? NAMES[s.route][s.lang === 'lt' ? 1 : 0] : '';
+    const title = name ? name + ' — AgneRim' : 'AgneRim — Handmade Ceramics';
+    if (document.title !== title) document.title = title;
   }
 
   // Page-enter: flip pageIn two frames after mount/navigation so hero + sections fade up.
@@ -456,8 +486,9 @@ class Component extends DCLogic {
     document.querySelectorAll('[data-reveal]').forEach(el => { if (!this._observed.has(el)) { this._observed.add(el); this._io.observe(el); } });
   }
 
-  go = e => { e.preventDefault(); this.nav(e.currentTarget.dataset.route); };
-  openPiece = e => { e.preventDefault(); this.nav('piece', e.currentTarget.dataset.slug); };
+  go = e => this.link(e, false);
+  openPiece = e => this.link(e, false);
+  backHome = e => this.link(e, true);
   setLang = e => {
     const lang = e.currentTarget.dataset.lang;
     this.setState({ lang });
@@ -486,10 +517,11 @@ class Component extends DCLogic {
     const shown = id => s.revealAll || !!s.seen[id];
     const FROM = { up: 'translateY(56px)', left: 'translateX(-64px)', right: 'translateX(64px)' };
     const reveal = (id, dir) => ({ op: shown(id) ? 1 : 0, tf: shown(id) ? 'none' : FROM[dir || 'up'] });
+    const tag = p => (!p.available ? t.sold : p.price != null ? fmtPrice(p) : '');
     const view = (p, dir) => ({
-      slug: p.slug, href: '#/piece/' + p.slug, title: p.title, cover: p.photos[0].src, ratio: p.photos[0].ratio,
-      caption: capStyle === 'price' ? fmtPrice(p) : capStyle === 'collection' ? p.collection : '',
-      hasCaption: capStyle !== 'title' && !!(capStyle === 'price' || p.collection), ...reveal(p.slug, dir),
+      slug: p.slug, href: '#/work/' + p.slug, title: p.title, label: tag(p) ? p.title + ', ' + tag(p) : p.title,
+      cover: p.photos[0].src, ratio: p.photos[0].ratio,
+      caption: p.collection, hasCaption: capStyle === 'collection' && !!p.collection, ...reveal(p.slug, dir),
     });
     const bySlug = Object.fromEntries(P.map(p => [p.id, p]));
     const rows = Component.LAYOUT.filter(r => r[0] === '#statement' || r.every(id => bySlug[id])).map((r, i) => r[0] === '#statement'
@@ -497,7 +529,7 @@ class Component extends DCLogic {
       : r.length === 1
         ? { isLarge: true, isPair: false, isText: false, maxW: bySlug[r[0]].photos[0].ratio === '2 / 3' ? '560px' : (i === 0 ? '1112px' : '792px'), a: view(bySlug[r[0]], 'up') }
         : { isLarge: false, isPair: true, isText: false, a: view(bySlug[r[0]], 'left'), b: view(bySlug[r[1]], 'right') });
-    const idx = Math.max(0, P.findIndex(p => p.slug === s.slug));
+    const idx = Math.max(0, P.findIndex(p => p.slug === s.slug || p.id.toLowerCase() === s.slug));
     const cur = P[idx] || { slug: '', id: '', title: '', collection: '', type: '', dims: { en: '', lt: '' }, price: null, available: true, description: '', photos: [{ src: '', ratio: '3 / 2' }] };
     const typeName = (t.types[cur.type] || cur.type);
     const piece = {
@@ -521,7 +553,7 @@ class Component extends DCLogic {
       isEn: lang === 'en', isLt: lang === 'lt',
       enColor: lang === 'en' ? '#1c1a17' : '#a39d93', ltColor: lang === 'lt' ? '#1c1a17' : '#a39d93',
       navHome: navColor(r === 'home' || r === 'piece'), navAbout: navColor(r === 'about'), navFaq: navColor(r === 'faq'), navContact: navColor(r === 'contact'),
-      go: this.go, setLang: this.setLang, openPiece: this.openPiece, toggleFaq: this.toggleFaq, sendMessage: this.sendMessage,
+      go: this.go, setLang: this.setLang, openPiece: this.openPiece, backHome: this.backHome, toggleFaq: this.toggleFaq, sendMessage: this.sendMessage,
       rows, piece, prev, next, t,
       pageOp: s.pageIn ? 1 : 0, pageTf: s.pageIn ? 'none' : 'translateY(28px)',
       enquireHref: `mailto:${email}?subject=${encodeURIComponent(t.subject + cur.title)}`,
